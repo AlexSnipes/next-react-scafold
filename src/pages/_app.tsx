@@ -1,5 +1,12 @@
 import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+
+/**
+ * NextJs
+ *
+ */
+
+import {appWithTranslation} from 'next-i18next';
+import {AppProps} from 'next/app'
 /**
  * Layout
  */
@@ -7,19 +14,19 @@ import Layout from "@/themes/main/layout"
 /**
  * React Redux
  */
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 import store from '@/redux/store'
 
-function MyApp({ Component, pageProps }: AppProps) {
-
-  return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
-  )
+function MyApp({Component, pageProps}: AppProps) {
+    const getLayout = Component.getLayout ?? ((page) => page);
+    return (
+        <Provider store={store}>
+            <Layout>
+                {getLayout(<Component {...pageProps} />)}
+            </Layout>
+        </Provider>
+    )
 
 }
 
-export default MyApp
+export default appWithTranslation(MyApp);
