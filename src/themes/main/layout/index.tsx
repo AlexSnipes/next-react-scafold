@@ -6,12 +6,9 @@ import Head from 'next/head'
  * Styles
  */
 import "@fontsource/open-sans";
-import styles from './layout.module.css'
 /**
  * Components
  */
-import BottomNavBar from "@/components/layout/BottomNavBar";
-//import TopNavBar from "@/components/layout/TopNavBar";
 
 /**
  * Layout
@@ -27,16 +24,13 @@ const Layout = ({ children }) => {
 				<link rel="icon" href="/favicon.ico"/>
 			</Head>
 
-
-			<main className={styles.main}>
+			<main>
 				{children}
 			</main>
 
 			<footer>
 				<a href="" target="_blank" rel="noopener noreferrer">Developed by{' '}</a>
 			</footer>
-
-			<BottomNavBar/>
 		</>
 	)
 }

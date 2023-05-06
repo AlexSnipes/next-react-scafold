@@ -1,16 +1,21 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer base {
+  :root {
 
-* {
-  box-sizing: border-box;
+    /*
+    * primary color
+    */
+    --color-accent: 18, 211, 207;
+
+    /*
+    * Hover state color of primary color
+    */
+    --color-accent-hover: 1, 147, 118;
+  }
+  body {
+    @apply font-body;
+  }
 }
